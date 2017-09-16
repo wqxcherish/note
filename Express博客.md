@@ -11,7 +11,7 @@ app.listen(3000);
 console.log('Server running at http://localhost:3000/')
 
 module.exports = app;
-
+```
 app.use()沿用了Connect的方式,注册middleware
 res.send()方法集成了设置Content-Type.和res.end()方法
 module.exports方法导出app
@@ -175,7 +175,7 @@ var app = express();
 app.listen(3000);
 module.exports = app;
 console.log('Server is running at http://localhost:3000/');
-
+```
 #环境配置文件
 ```
 //在config/env目录建立文件development.js
@@ -184,7 +184,7 @@ module.exports = {
 }
 //修改配置加载,在config目录新建config.js文件
 module.exports = require('./env/'+process.env.NODE_ENV+ '.js');
-
+```
 #渲染界面
 web框架的最基本功能是渲染界面,最基本的认知就是模板引擎提供数据,然后渲染成HTML.在mvc模式下,控制器使用模型把数据分配,通过界面模板渲染HTML
 Express渲染界面的方法:
@@ -262,7 +262,7 @@ module.exports = {
 	//Development configuration options
 	sessionSecret:'developmentSessionSecret'
 }
-
+```
 
 
 

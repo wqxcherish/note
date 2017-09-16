@@ -4,7 +4,7 @@
 ```JavaScript
 var express = require('express');
 var app = express();
-
+```
 ##Methods
 express.static(root,[options])
 express.static是Express中唯一的内建中部件.它以server-static模块为基础开发,负责托管Express应用内的静态资源
@@ -24,7 +24,7 @@ app.get('/',function(req,res){
 app.listen(3000);
 
 app对象具有以下方法:路由HTTP请求,配置中间件,渲染HTML视图,注册模板引擎
-
+```
 ##Properties
 
 ###app.locals 对象是一个JavaScript对象,它的属性就是程序本地的变量,一旦设定,app.locals的各属性值将贯穿程序的整个生命周期,与其相反的是
@@ -41,7 +41,7 @@ admin.get('/',function(req,res){
 	console.log(admin.mountpath); //admin
 	res.send("Admin Homepage");
 })
-
+```
 app.use('/admin',admin); //app mount the admin
 它和req对象的baseUrl属性比较相似,除了req.baseUrl是匹配的URL路径,而不是匹配的模式.如果一个子程序被挂载在多条路径模式,
 app.mountpath就是一个关于挂载路径模式项的列表
@@ -61,7 +61,7 @@ secret.get('/',function(req,res){
  
 admin.use('/secr*t',secret); //load the 'secret' router on '/secr*t',on the 'admin' sub app
 app.use(['/adm*n','/manager'],admin); //load the 'admin' router on '/adm*n' and '/manager' on the parent app
-
+```
 ##Events
 app.on('mount',callback(parent))
 当子程序被挂载到父程序时,mount事件被发射.父程序对象作为参数,传递给回调方法
@@ -78,3 +78,4 @@ app.use('/admin',admin);
 
 Methods
 app.all(path,callback[,callback...])
+```
