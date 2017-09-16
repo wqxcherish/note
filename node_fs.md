@@ -1,4 +1,4 @@
-#readFile(),readFileSync()
+# readFile(),readFileSync()
 readFile()用于异步读取数据,readFileSync()用于同步
 ```
 fs.readFile('./image.png',function (err,buffer){
@@ -26,7 +26,7 @@ var EOL = fileContents.indexOf('\r\n') >= 0 ? '\r\n' : '\n';
 var EOL = (process.platform === 'win32' ? '\r\n' : '\n');
  ```
 
-#writeFile(),writeFileSync()
+# writeFile(),writeFileSync()
 
 ```
 fs.writeFile('message.txt','Hello Node.js',(err) => {

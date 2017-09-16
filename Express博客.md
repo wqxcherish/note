@@ -55,7 +55,7 @@ express.static //处理静态文件
 cookie-parser  //包含于res.cookie实例
 Session 持久化session
 
-#项目文件结构
+# 项目文件结构
 -app  //存放Express应用逻辑的文件夹
  -controllers //存放应用的控制器
  -models   //存放model
@@ -78,7 +78,7 @@ Session 持久化session
 -server.js     //Node.js的main文件,用来加载express.js文件,是Express应用启动的文件
 -package.json  //用来管理项目的依赖包
 
-#处理请求路由
+# 处理请求路由
 ```
 app.get('/',function(res,req){
 	res.send('This is a GET request')
@@ -111,8 +111,9 @@ var app = express();
 app.get('/',hasName,sayHello);
 app.listen(3000);
 console.log('Server is running at http://localhost:3000/');
-
-#在项目中加入路由文件
+```
+# 在项目中加入路由文件
+```
 /* routes.js */
 module.exports = function(app){
 	var index =  require('../controllers/index.server.controller');
@@ -176,7 +177,7 @@ app.listen(3000);
 module.exports = app;
 console.log('Server is running at http://localhost:3000/');
 ```
-#环境配置文件
+# 环境配置文件
 ```
 //在config/env目录建立文件development.js
 module.exports = {
@@ -185,7 +186,7 @@ module.exports = {
 //修改配置加载,在config目录新建config.js文件
 module.exports = require('./env/'+process.env.NODE_ENV+ '.js');
 ```
-#渲染界面
+# 渲染界面
 web框架的最基本功能是渲染界面,最基本的认知就是模板引擎提供数据,然后渲染成HTML.在mvc模式下,控制器使用模型把数据分配,通过界面模板渲染HTML
 Express渲染界面的方法:
 app.render()  //渲染界面将HTML发送给回调函数
@@ -224,7 +225,8 @@ module.exports = function () {
     require('../app/routes/index.server.routes')(app);
     return(app);
 };
-#渲染EJS view
+```
+# 渲染EJS view
 EJS间基本是由HTML和EJS标签组成的.EJS模板将会跳转app/views文件夹,会有.ejs扩展.当你使用res.render()方法时,EJS引擎将会在views文件夹寻找模板,如果找到了就渲染HTML输出
 
 创建第一个EJS view 
@@ -246,11 +248,12 @@ exports.render = function (req,res) {
 		title:'Hello EJS'
 	})
 }
-#保存静态文件
+```
+# 保存静态文件
 Express提供了express.static()  middleware来处理静态文件.
 app.use(express.static('./public')); //告诉了expres静态文件存放的路径,注意要把这段代码放到路由之后,因为放在路由之前的express会先从HTTP请求path中寻找静态文件,这样会让性能变慢
 
-#处理Session
+# 处理Session
 导入express-session包
 express-session模块:
 -cookie-stored  
