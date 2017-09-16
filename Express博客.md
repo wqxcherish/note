@@ -56,16 +56,16 @@ module.exports方法导出app
 - Session 持久化session
 
 # 项目文件结构
-- app  //存放Express应用逻辑的文件夹
+1. app  //存放Express应用逻辑的文件夹
  - controllers //存放应用的控制器
  - models   //存放model
  - routes   //存放路由中间件middleware
  - views    //存放界面view
-- config    //存放Express应用的配置文件,当需要加入更多的module的时候,每一个model的配置文件也放在这里
- - env      //存放环境配置文件
+2. config    //存放Express应用的配置文件,当需要加入更多的module的时候,每一个model的配置文件也放在这里
+  - env      //存放环境配置文件
   - config.js //存放整个应用的配置
   - express.js //存放Express的初始化配置
-- public //存放静态客户端文件
+3.  public //存放静态客户端文件
  - config //存放AngularJS应用的配置文件
  - controllers  //存放控制器
  - css
@@ -75,8 +75,8 @@ module.exports方法导出app
  - services
  - views       //存放AngulaJS的view
  - appliction.js   //用来初始化AngularJS应用
-- server.js     //Node.js的main文件,用来加载express.js文件,是Express应用启动的文件
-- package.json  //用来管理项目的依赖包
+4. - server.js     //Node.js的main文件,用来加载express.js文件,是Express应用启动的文件
+5. - package.json  //用来管理项目的依赖包
 
 # 处理请求路由
 ```
