@@ -16,67 +16,67 @@ app.use()沿用了Connect的方式,注册middleware
 res.send()方法集成了设置Content-Type.和res.end()方法
 module.exports方法导出app
 
-#Application
+# Application
 帮助开发者配置web服务,常用方法:
-app.set(name,value)   //设置环境变量
-app.get(name)    //获取环境变量
-app.engine(ext,callback)  //设置模板引擎来渲染文件
- app.('html',require('ejs').renderFile)  //用ejs模板引擎来模板化HTML文件
-app.VERB(path,[callback...],callback) //定义一个或多个middleware
-app.route(path).VERB([callback...],callback) //定义一个或多个middleware,以及他们对于的web和路径
-app.param([name],callback)  //给一个请求所对应的方法绑定路由参数
+- app.set(name,value)   //设置环境变量
+- app.get(name)    //获取环境变量
+- app.engine(ext,callback)  //设置模板引擎来渲染文件
+- app.('html',require('ejs').renderFile)  //用ejs模板引擎来模板化HTML文件
+- app.VERB(path,[callback...],callback) //定义一个或多个middleware
+- app.route(path).VERB([callback...],callback) //定义一个或多个middleware,以及他们对于的web和路径
+- app.param([name],callback)  //给一个请求所对应的方法绑定路由参数
 
-#Request
+# Request
 处理http请求,常用变量/方法:
-req.query  //包含了query-string变量
-req.params  //包含了路径变量
-req.body  //检索请求body
-req.param(name) //检索一个请求参数值
-req.path,req.host,req.ip //请求的路径/主机/IP
-req.cookies  //和中间件cookieParser()一起使用,来检索用户发出的cookie
+- req.query  //包含了query-string变量
+- req.params  //包含了路径变量
+- req.body  //检索请求body
+- req.param(name) //检索一个请求参数值
+- req.path,req.host,req.ip //请求的路径/主机/IP
+- req.cookies  //和中间件cookieParser()一起使用,来检索用户发出的cookie
 
 #Response
 处理http响应,常用方法
-res.status(code) //设置响应HTTP状态码
-res.set(field[value])  //设置响应头HTTP header
-res.cookie(name,value,[option])  //设置响应cookie,option参数用来配置cookie
-res.redirect([status],url)  //再次定向请求一个新的URL,同时可以传递一个HTTP状态码,如果不设置,默认302
-res.send([body|status],[body])  //用于non-streaming响应.这个方法同时做了诸如设置Content-Type,Content-Length头和缓存头的操作
-res.json([status|body],[body])  //和res.send()一样,发送object或者array.多数时候用作语法糖,也有强制发送一个空json响应
-res.render(view,[locals],callback)  //渲染一个view或发出一个HTMl响应
+- res.status(code) //设置响应HTTP状态码
+- res.set(field[value])  //设置响应头HTTP header
+- res.cookie(name,value,[option])  //设置响应cookie,option参数用来配置cookie
+- res.redirect([status],url)  //再次定向请求一个新的URL,同时可以传递一个HTTP状态码,如果不设置,默认302
+- res.send([body|status],[body])  //用于non-streaming响应.这个方法同时做了诸如设置Content-Type,Content-Length头和缓存头的操作
+- res.json([status|body],[body])  //和res.send()一样,发送object或者array.多数时候用作语法糖,也有强制发送一个空json响应
+- res.render(view,[locals],callback)  //渲染一个view或发出一个HTMl响应
 
 
 #外部middleware
-Morgan //HTTP请求logger
-body-parser  //处理请求body,支持多种请求类型
-method-override  //支持HTTP verb 例如PUT DELETE
-Compression  //gzip/deflate 压缩相应数据
-express.static //处理静态文件
-cookie-parser  //包含于res.cookie实例
-Session 持久化session
+- Morgan //HTTP请求logger
+- body-parser  //处理请求body,支持多种请求类型
+- method-override  //支持HTTP verb 例如PUT DELETE
+- Compression  //gzip/deflate 压缩相应数据
+- express.static //处理静态文件
+- cookie-parser  //包含于res.cookie实例
+- Session 持久化session
 
 # 项目文件结构
--app  //存放Express应用逻辑的文件夹
- -controllers //存放应用的控制器
- -models   //存放model
- -routes   //存放路由中间件middleware
- -views    //存放界面view
--config    //存放Express应用的配置文件,当需要加入更多的module的时候,每一个model的配置文件也放在这里
- -env      //存放环境配置文件
-  -config.js //存放整个应用的配置
-  -express.js //存放Express的初始化配置
--public //存放静态客户端文件
- -config //存放AngularJS应用的配置文件
- -controllers  //存放控制器
- -css
- -directives   //存放AngularJS的指示
- -filters     //存放AngularJS的过滤器
- -img
- -services
- -views       //存放AngulaJS的view
- -appliction.js   //用来初始化AngularJS应用
--server.js     //Node.js的main文件,用来加载express.js文件,是Express应用启动的文件
--package.json  //用来管理项目的依赖包
+- app  //存放Express应用逻辑的文件夹
+ - controllers //存放应用的控制器
+ - models   //存放model
+ - routes   //存放路由中间件middleware
+ - views    //存放界面view
+- config    //存放Express应用的配置文件,当需要加入更多的module的时候,每一个model的配置文件也放在这里
+ - env      //存放环境配置文件
+  - config.js //存放整个应用的配置
+  - express.js //存放Express的初始化配置
+- public //存放静态客户端文件
+ - config //存放AngularJS应用的配置文件
+ - controllers  //存放控制器
+ - css
+ - directives   //存放AngularJS的指示
+ - filters     //存放AngularJS的过滤器
+ - img
+ - services
+ - views       //存放AngulaJS的view
+ - appliction.js   //用来初始化AngularJS应用
+- server.js     //Node.js的main文件,用来加载express.js文件,是Express应用启动的文件
+- package.json  //用来管理项目的依赖包
 
 # 处理请求路由
 ```
